@@ -18,11 +18,17 @@ public class Author {
     private Long id;
     private String firstname;
     private String lastname;
+    @JsonIgnore
     private String username;
+    @JsonIgnore
     private String password;
+
+    @OneToMany
+    private List<Post> posts;
 
     public Author() {
         super();
+        this.posts = new ArrayList();
     }
 
     public Author(String username, String firstname, String lastname, String password) {
@@ -69,6 +75,7 @@ public class Author {
         return password;
     }
 
+
     @Override
     public boolean equals(Object obj) {
         Author inputAuthor = (Author)obj;
@@ -85,10 +92,13 @@ public class Author {
     }
 
     public List<Post> getPosts() {
-        return null;
+        return this.posts;
+    }
+    public void setPosts(List<Post> posts) {
+        this.posts = posts;
     }
 
     public void addPost(Post post) {
-        return;
+        this.posts.add(post);
     }
 }

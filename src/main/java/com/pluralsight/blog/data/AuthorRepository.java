@@ -8,8 +8,11 @@ import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
+@RepositoryRestResource(exported = false)
+public interface AuthorRepository extends JpaRepository<Author,Long>{
 
-@Component
+}
+/*@Component
 public class AuthorRepository {
     public List<Author> findAll() {
         return new ArrayList<>();
@@ -18,4 +21,4 @@ public class AuthorRepository {
     public List<Author> saveAll(List<Author> authors) {
         return new ArrayList<>();
     }
-}
+}*/
